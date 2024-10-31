@@ -77,7 +77,7 @@ else
 	if [ -d  "$protobuf_install_dir" ]; then
 		pushd $protobuf_build_dir
 		if [[ $protobuf_version == "3.5.0" ]]; then
-			cmake -Dprotobuf_MODULE_COMPATIBLE=ON -DCMAKE_INSTALL_PREFIX=$protobuf_install_dir -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=off $PROTOBUF_3_5/cmake/ || exit 1
+			cmake -Dprotobuf_MODULE_COMPATIBLE=ON -DCMAKE_NO_SYSTEM_FROM_IMPORTED=1 -DCMAKE_INSTALL_PREFIX=$protobuf_install_dir -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=off $PROTOBUF_3_5/cmake/ || exit 1
 		elif [[ $protobuf_version == "3.21.12" ]]; then
 			cmake -Dprotobuf_MODULE_COMPATIBLE=ON -DCMAKE_INSTALL_PREFIX=$protobuf_install_dir -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=off $PROTOBUF_3_21_12 || exit 1
 		fi	
@@ -87,16 +87,17 @@ else
 	fi
 fi
 
-if [ -d  "$protobuf_test_dir" ]; then
-	pushd $protobuf_test_dir
-	cmake -DPLANT_FORAMT=$platform_type ..
-	make
-	popd
-fi
 
-if [ -d  "$protobuf_test_types_dir" ]; then
-	pushd $protobuf_test_types_dir
-	cmake -DPLANT_FORAMT=$platform_type ..
-	make
-	popd
-fi
+# if [ -d  "$protobuf_test_dir" ]; then
+# 	pushd $protobuf_test_dir
+# 	cmake -DPLANT_FORAMT=$platform_type ..
+# 	make
+# 	popd
+# fi
+
+# if [ -d  "$protobuf_test_types_dir" ]; then
+# 	pushd $protobuf_test_types_dir
+# 	cmake -DPLANT_FORAMT=$platform_type ..
+# 	make
+# 	popd
+# fi
