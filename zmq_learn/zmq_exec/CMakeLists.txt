@@ -19,11 +19,11 @@ target_link_libraries(server_zmq PRIVATE ${ZeroMQ_LIBRARY})
 # add_executable(server_zmq_cpp  cli_srv/server_cpp.cpp)
 # target_link_libraries(server_zmq_cpp PRIVATE ${ZeroMQ_LIBRARY})
 
-add_executable(client_zmq  cli_srv/client.cpp)
-target_link_libraries(client_zmq PRIVATE ${ZeroMQ_LIBRARY})
+# add_executable(client_zmq  cli_srv/client.cpp)
+# target_link_libraries(client_zmq PRIVATE ${ZeroMQ_LIBRARY})
 
-add_executable(server_zmq_multithread  cli_srv/multithread_server.cpp)
-target_link_libraries(server_zmq_multithread PRIVATE pthread ${ZeroMQ_LIBRARY})
+# add_executable(server_zmq_multithread  cli_srv/multithread_server.cpp)
+# target_link_libraries(server_zmq_multithread PRIVATE pthread ${ZeroMQ_LIBRARY})
 
 # add_executable(weather_srv  weather_cli_srv/weather_srv.cpp)
 # target_link_libraries(weather_srv PRIVATE ${ZeroMQ_LIBRARY})
@@ -40,5 +40,11 @@ target_link_libraries(server_zmq_multithread PRIVATE pthread ${ZeroMQ_LIBRARY})
 # add_executable(collector  task_calculate/task_collecter.cpp)
 # target_link_libraries(collector PRIVATE ${ZeroMQ_LIBRARY})
 
-add_executable(zmq_multithread_sync  zmq_sync/multithread_sync.cpp)
-target_link_libraries(zmq_multithread_sync PRIVATE pthread ${ZeroMQ_LIBRARY})
+# add_executable(zmq_multithread_sync  zmq_sync/multithread_sync.cpp)
+# target_link_libraries(zmq_multithread_sync PRIVATE pthread ${ZeroMQ_LIBRARY})
+
+add_executable(syncsub  zmq_sync/node_sync_sub.cpp)
+target_link_libraries(syncsub PRIVATE pthread ${ZeroMQ_LIBRARY})
+
+add_executable(syncpub  zmq_sync/node_sync_pub.cpp)
+target_link_libraries(syncpub PRIVATE pthread ${ZeroMQ_LIBRARY})
