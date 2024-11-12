@@ -39,3 +39,6 @@ target_link_libraries(server_zmq_multithread PRIVATE pthread ${ZeroMQ_LIBRARY})
 
 # add_executable(collector  task_calculate/task_collecter.cpp)
 # target_link_libraries(collector PRIVATE ${ZeroMQ_LIBRARY})
+
+add_executable(zmq_multithread_sync  zmq_sync/multithread_sync.cpp)
+target_link_libraries(zmq_multithread_sync PRIVATE pthread ${ZeroMQ_LIBRARY})
