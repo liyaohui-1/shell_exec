@@ -63,3 +63,6 @@ target_link_libraries(dursub PRIVATE pthread ${ZeroMQ_LIBRARY})
 
 add_executable(handsignal  singal_do/hand_signal.cpp)
 target_link_libraries(handsignal PRIVATE pthread ${ZeroMQ_LIBRARY})
+
+add_executable(zmq_version  zmq_version/version.cpp)
+target_link_libraries(zmq_version PRIVATE pthread ${ZeroMQ_LIBRARY})
