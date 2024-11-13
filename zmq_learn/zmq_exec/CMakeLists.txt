@@ -13,8 +13,8 @@ message(STATUS "ZeroMQ_LIBRARY:     ${ZeroMQ_LIBRARY}")
 include_directories(${ZeroMQ_INCLUDE_DIR})
 include_directories(${CMAKE_SOURCE_DIR}/../zmq_guide/zguide/examples/C)
 
-add_executable(server_zmq  cli_srv/server.cpp)
-target_link_libraries(server_zmq PRIVATE ${ZeroMQ_LIBRARY})
+# add_executable(server_zmq  cli_srv/server.cpp)
+# target_link_libraries(server_zmq PRIVATE ${ZeroMQ_LIBRARY})
 
 # add_executable(server_zmq_cpp  cli_srv/server_cpp.cpp)
 # target_link_libraries(server_zmq_cpp PRIVATE ${ZeroMQ_LIBRARY})
@@ -43,8 +43,14 @@ target_link_libraries(server_zmq PRIVATE ${ZeroMQ_LIBRARY})
 # add_executable(zmq_multithread_sync  zmq_sync/multithread_sync.cpp)
 # target_link_libraries(zmq_multithread_sync PRIVATE pthread ${ZeroMQ_LIBRARY})
 
-add_executable(syncsub  zmq_sync/node_sync_sub.cpp)
-target_link_libraries(syncsub PRIVATE pthread ${ZeroMQ_LIBRARY})
+# add_executable(syncsub  zmq_sync/node_sync_sub.cpp)
+# target_link_libraries(syncsub PRIVATE pthread ${ZeroMQ_LIBRARY})
 
-add_executable(syncpub  zmq_sync/node_sync_pub.cpp)
-target_link_libraries(syncpub PRIVATE pthread ${ZeroMQ_LIBRARY})
+# add_executable(syncpub  zmq_sync/node_sync_pub.cpp)
+# target_link_libraries(syncpub PRIVATE pthread ${ZeroMQ_LIBRARY})
+
+add_executable(email_sub  email_on/email_sub.cpp)
+target_link_libraries(email_sub PRIVATE pthread ${ZeroMQ_LIBRARY})
+
+add_executable(email_pub  email_on/email_pub.cpp)
+target_link_libraries(email_pub PRIVATE pthread ${ZeroMQ_LIBRARY})
