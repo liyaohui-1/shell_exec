@@ -41,7 +41,7 @@ static void* step2(void* context)
 
 int main(void)
 {
-    void* context = zmq_init(1);
+    void* context = zmq_ctx_new();
 
     //  启动步骤2前线绑定至inproc套接字
     void* receiver = zmq_socket(context, ZMQ_PAIR);
@@ -55,6 +55,6 @@ int main(void)
     zmq_close(receiver);
 
     printf("测试成功！\n");
-    zmq_term(context);
+    zmq_ctx_destroy(context);
     return 0;
 }

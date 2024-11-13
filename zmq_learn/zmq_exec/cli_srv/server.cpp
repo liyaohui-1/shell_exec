@@ -11,7 +11,7 @@
 
 int main(void)
 {
-    void* context = zmq_init(1);
+    void* context = zmq_ctx_new();
 
     //  与客户端通信的套接字
     void* responder = zmq_socket(context, ZMQ_REP);
@@ -48,7 +48,7 @@ int main(void)
 
     //  清理资源（但在这个例子中，由于循环是无限的，这些代码永远不会被执行）
     zmq_close(responder);
-    zmq_term(context);
+    zmq_ctx_destroy(context);
 
     return 0; // 注意：这个返回值在这个例子中永远不会被看到，因为程序不会退出循环。
 }

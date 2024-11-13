@@ -7,7 +7,7 @@
 
 int main(int argc, char* argv[])
 {
-    void* context = zmq_init(1);
+    void* context = zmq_ctx_new();
 
     //  创建连接至服务端的套接字
     printf("正在收集气象信息...\n");
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
     }
     printf("地区邮编 '%s' 的平均温度为 %dF\n", filter, (int)(total_temp / update_nbr));
 
-    zmq_close(subscriber);
+    zmq_ctx_destroy(subscriber);
     zmq_term(context);
     return 0;
 }

@@ -27,7 +27,7 @@ static void s_catch_signals(void)
 
 int main(void)
 {
-    void* context = zmq_init(1);
+    void* context = zmq_ctx_new();
     void* socket = zmq_socket(context, ZMQ_REP);
     zmq_bind(socket, "tcp://*:5555");
 
@@ -44,6 +44,6 @@ int main(void)
         }
     }
     zmq_close(socket);
-    zmq_term(context);
+    zmq_ctx_destroy(context);
     return 0;
 }

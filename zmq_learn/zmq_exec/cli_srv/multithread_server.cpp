@@ -26,7 +26,7 @@ static void* worker_routine(void* context)
 
 int main(void)
 {
-    void* context = zmq_init(1);
+    void* context = zmq_ctx_new();
 
     //  用于和client进行通信的套接字
     void* clients = zmq_socket(context, ZMQ_ROUTER);
@@ -48,7 +48,7 @@ int main(void)
     //  程序不会运行到这里，但仍进行清理工作
     zmq_close(clients);
     zmq_close(workers);
-    zmq_term(context);
+    zmq_ctx_destroy(context);
     return 0;
 }
 

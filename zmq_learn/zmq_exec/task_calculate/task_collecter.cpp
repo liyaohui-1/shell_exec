@@ -8,7 +8,7 @@
 int main(void)
 {
     //  准备上下文和套接字
-    void* context = zmq_init(1);
+    void* context = zmq_ctx_new();
     void* receiver = zmq_socket(context, ZMQ_PULL);
     zmq_bind(receiver, "tcp://*:5558");
 
@@ -34,6 +34,6 @@ int main(void)
     printf("执行时间: %d 毫秒\n", (int)(s_clock() - start_time));
 
     zmq_close(receiver);
-    zmq_term(context);
+    zmq_ctx_destroy(context);
     return 0;
 }

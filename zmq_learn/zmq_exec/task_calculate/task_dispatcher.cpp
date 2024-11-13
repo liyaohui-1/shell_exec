@@ -8,7 +8,7 @@
 
 int main(void)
 {
-    void* context = zmq_init(1);
+    void* context = zmq_ctx_new();
 
     //  用于发送消息的套接字
     void* sender = zmq_socket(context, ZMQ_PUSH);
@@ -45,6 +45,6 @@ int main(void)
 
     zmq_close(sink);
     zmq_close(sender);
-    zmq_term(context);
+    zmq_ctx_destroy(context);
     return 0;
 }

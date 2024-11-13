@@ -8,7 +8,7 @@
 int main(void)
 {
     //  准备上下文和PUB套接字
-    void* context = zmq_init(1);
+    void* context = zmq_ctx_new();
     void* publisher = zmq_socket(context, ZMQ_PUB);
     zmq_bind(publisher, "tcp://*:5563");
 
@@ -22,6 +22,6 @@ int main(void)
     }
     //  正确退出
     zmq_close(publisher);
-    zmq_term(context);
+    zmq_ctx_destroy(context);
     return 0;
 }
