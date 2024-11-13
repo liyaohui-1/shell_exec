@@ -60,3 +60,6 @@ target_link_libraries(durpub PRIVATE pthread ${ZeroMQ_LIBRARY})
 
 add_executable(dursub  keeplong_skt/durable_sub.cpp)
 target_link_libraries(dursub PRIVATE pthread ${ZeroMQ_LIBRARY})
+
+add_executable(handsignal  singal_do/hand_signal.cpp)
+target_link_libraries(handsignal PRIVATE pthread ${ZeroMQ_LIBRARY})
