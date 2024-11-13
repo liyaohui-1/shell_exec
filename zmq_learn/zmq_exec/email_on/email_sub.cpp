@@ -6,6 +6,7 @@ int main(void)
     void* context = zmq_init(1);
     void* subscriber = zmq_socket(context, ZMQ_SUB);
     zmq_connect(subscriber, "tcp://localhost:5563");
+    // 选择订阅，此时仅订阅"信封"为B的消息
     zmq_setsockopt(subscriber, ZMQ_SUBSCRIBE, "B", 1);
 
     while (1) {

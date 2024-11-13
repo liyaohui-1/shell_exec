@@ -54,3 +54,9 @@ target_link_libraries(email_sub PRIVATE pthread ${ZeroMQ_LIBRARY})
 
 add_executable(email_pub  email_on/email_pub.cpp)
 target_link_libraries(email_pub PRIVATE pthread ${ZeroMQ_LIBRARY})
+
+add_executable(durpub  keeplong_skt/durable_pub.cpp)
+target_link_libraries(durpub PRIVATE pthread ${ZeroMQ_LIBRARY})
+
+add_executable(dursub  keeplong_skt/durable_sub.cpp)
+target_link_libraries(dursub PRIVATE pthread ${ZeroMQ_LIBRARY})
