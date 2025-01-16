@@ -10,3 +10,7 @@ systemctl daemon-reload
 systemctl enable auto_run_script.service
 ```
 5. 最后重启系统，执行```reboot```即可
+
+> 参考:  
+> &emsp;[监控脚本](https://blog.csdn.net/frdevolcqzyxynjds/article/details/136608106)  
+> &emsp;[添加开机自启动服务，服务用来执行监控脚本](https://blog.csdn.net/jinking01/article/details/126878417)
